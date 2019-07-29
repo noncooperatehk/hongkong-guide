@@ -14,7 +14,7 @@
 <script>
 import CompanyPreview from './CompanyPreview.vue'
 export default {
-  name: 'HelloWorld',
+  name: 'SearchCompany',
   props: {
     msg: String
   },
