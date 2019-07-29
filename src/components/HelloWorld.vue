@@ -4,8 +4,9 @@
     <div class="search-box">
       <md-field>
         <label>Type Names To Search</label>
-        <md-input v-model="searchInitValue"></md-input>
+        <md-input v-model="searchValue" placeholder="type names to search... like yoshinoya" v-on:keyup.enter="doSearch($event)"></md-input>
       </md-field>  
+      <div>{{ lastEvent }}</div>
     </div>
   </div>
 </template>
@@ -17,8 +18,15 @@ export default {
     msg: String
   },
   data: () => ({
-    searchInitValue: 'yoshinoya'  
-  })
+    searchValue: null,
+    lastEvent: "nothing"
+  }),
+  methods: {
+    doSearch: function(event) {
+      if (event) event.preventDefault()
+      this.lastEvent = `entered ${this.searchValue}`  
+    }
+  }
 }
 </script>
 
