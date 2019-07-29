@@ -3,18 +3,22 @@ const data = [
     {
         title: "養心殿",
         imageUrl: "logo.png",
-        address: "somewhere2",
-        shortSummary: "this is the summary2"
+        address: "養心殿地址",
+        shortSummary: "關於養心殿概括"
     },
     {
         title: "吉野家",
         imageUrl: "logo.png",
-        address: "somewhere1",
-        shortSummary: "this is the summary1"
+        address: "吉野家地址",
+        shortSummary: "關於吉野家概括"
     }
 ]
 export default {
     find: function(query) {
-        return data;
+        if (!query) {
+            return data.slice(0, 10);
+        } else {
+            return data.filter(company => company.title.includes(query)); 
+        }
     }
 }

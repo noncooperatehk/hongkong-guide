@@ -7,7 +7,9 @@
         <md-input v-model="searchValue" placeholder="type names to search... like yoshinoya" v-on:keyup.enter="doSearch($event)"></md-input>
       </md-field> 
     </div>
-    <CompanyPreview v-for="(companyPreview,index) in companyPreviews" v-bind:preview="companyPreview" v-bind:key="index"></CompanyPreview>
+    <div>
+      <CompanyPreview v-for="(companyPreview,index) in companyPreviews" v-bind:preview="companyPreview" v-bind:key="index"/>
+    </div>
   </div>
 </template>
 
