@@ -24,7 +24,9 @@ export default {
   methods: {
     doSearch: function(event) {
       if (event) event.preventDefault()
-      this.lastEvent = `entered ${this.searchValue}`  
+      console.log(this.$compDb)
+      let searchResult = this.$compDb.find(this.searchValue)
+      this.lastEvent = `entered ${JSON.stringify(searchResult)}`
     }
   }
 }
