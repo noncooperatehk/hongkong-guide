@@ -4,7 +4,6 @@ import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/black-green-light.css' // This line here
 import App from './App.vue'
 import compDb from "./db/clientDb.js"
-console.log(compDb)
 Object.defineProperty(Vue.prototype, '$compDb', { value: compDb });
 
 

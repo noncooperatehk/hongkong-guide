@@ -5,13 +5,14 @@
       <md-field>
         <label>Type Names To Search</label>
         <md-input v-model="searchValue" placeholder="type names to search... like yoshinoya" v-on:keyup.enter="doSearch($event)"></md-input>
-      </md-field>  
-      <div>{{ lastEvent }}</div>
+      </md-field> 
     </div>
+    <CompanyPreview v-for="companyPreview in companyPreviews" v-bind:preview="companyPreview"></CompanyPreview>
   </div>
 </template>
 
 <script>
+import CompanyPreview from './CompanyPreview.vue'
 export default {
   name: 'HelloWorld',
   props: {
@@ -19,15 +20,17 @@ export default {
   },
   data: () => ({
     searchValue: null,
-    lastEvent: "nothing"
+    companyPreviews: []
   }),
   methods: {
     doSearch: function(event) {
       if (event) event.preventDefault()
-      console.log(this.$compDb)
       let searchResult = this.$compDb.find(this.searchValue)
-      this.lastEvent = `entered ${JSON.stringify(searchResult)}`
+      this.companyPreviews = searchResult
     }
+  },
+  components: {
+    CompanyPreview
   }
 }
 </script>

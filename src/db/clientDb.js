@@ -1,16 +1,20 @@
+//database of all companies
 const data = [
-	{
-		name: "養心殿",
-		imageUrl: "https://static7.orstatic.com/userphoto/photo/J/F70/0301XE988DB19366AABCA6px.jpg"
-	},
-	{
-		name: "吉野家",
-		imageUrl: "https://static7.orstatic.com/userphoto/photo/J/F70/0301XE988DB19366AABCA6px.jpg"	
-	}
+    {
+        title: "養心殿",
+        imageUrl: "logo.png",
+        address: "somewhere2",
+        shortSummary: "this is the summary2"
+    },
+    {
+        title: "吉野家",
+        imageUrl: "logo.png",
+        address: "somewhere1",
+        shortSummary: "this is the summary1"
+    }
 ]
 export default {
-	find: function(query) {
-		console.log(`query is ${query}`);
-		return data;
-	}
+    find: function(query) {
+        return data;
+    }
 }
