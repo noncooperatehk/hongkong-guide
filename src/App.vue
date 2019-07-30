@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <SearchCompany msg="Hong Kong Guide"/>
+    <SearchCompany msg="香港指南"/>
   </div>
 </template>
 

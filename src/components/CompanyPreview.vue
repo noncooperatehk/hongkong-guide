@@ -1,24 +1,22 @@
 <template>
-    <md-card>
-      <md-card-media-cover md-solid>
-        <md-card-media md-ratio="1:1">
-          <img v-bind:src="getUrl(preview.imageUrl)" crossorigin="">
-        </md-card-media>
-        <md-card-area>
-          <md-card-header>
-            <span class="md-title">{{preview.title}}</span>
-            <span class="md-subhead">{{preview.shortSummary}}</span>
-            <span class="md-subhead">{{preview.address}}</span>
-          </md-card-header>
+    <div>
+        <md-card>
+            <md-card-media>
+                <img v-bind:src="preview.imageUrl" crossorigin="">
+            </md-card-media>
+            <md-card-header>
+                <md-card-header-text>
+                    <div class="md-title">{{preview.title}}</div>
+                    <div class="md-subhead">{{preview.shortSummary}}</div>
+                    <div class="md-subhead">{{preview.address}}</div>
+                </md-card-header-text>
+            </md-card-header>
 
-          <md-card-actions>
-            <md-button class="md-icon-button">
-              <md-icon>view_list</md-icon>
-            </md-button>
-          </md-card-actions>
-        </md-card-area>
-      </md-card-media-cover>
-    </md-card>
+            <md-card-actions>
+                <md-button>詳情</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
 </template>
 
 <script>
@@ -28,9 +26,6 @@ export default {
     preview: Object
   },
   methods: {
-    getUrl: function(fileName) {
-        return require('./../assets/' + fileName)
-    }
   }
 }
 </script>
