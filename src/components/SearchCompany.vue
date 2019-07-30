@@ -1,14 +1,14 @@
 <template>
-    <div class="hello">
-        <h1>{{ msg }}</h1>
-        <div class="search-box">
+    <div class="md-layout md-alignment-top-center">
+        <h1 class="md-layout-item md-large-size-80 md-xlarge-size-80 md-medium-size-85 md-small-size-90 md-xsmall-size-95">{{ msg }}</h1>
+        <div class="md-layout-item md-large-size-80 md-xlarge-size-80 md-medium-size-85 md-small-size-90 md-xsmall-size-95">
             <md-field>
                 <label>搜尋商家</label>
                 <md-input v-model="searchValue" placeholder="請輸入商家名字"
                           v-on:keyup.enter="doSearch($event)"></md-input>
             </md-field>
         </div>
-        <div class="md-layout md-gutter preview-container">
+        <div class="md-layout-item md-alignment-top-left md-large-size-80 md-xlarge-size-80 md-medium-size-85 md-small-size-90 md-xsmall-size-95 md-layout md-gutter">
             <CompanyPreview class="md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100" v-for="(companyPreview,index) in companyPreviews" v-bind:preview="companyPreview" v-bind:key="index"/>
         </div>
     </div>
@@ -28,9 +28,8 @@
         }),
         methods: {
             doSearch: function (event) {
-                if (event) event.preventDefault()
-                let searchResult = this.$compDb.find(this.searchValue)
-                this.companyPreviews = searchResult
+                if (event) event.preventDefault();
+                this.companyPreviews = this.$compDb.find(this.searchValue)
             }
         },
         components: {
@@ -41,16 +40,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .preview-container {
-        margin-right: 20%;
-        margin-left: 20%;
-    }
-
-    .search-box {
-        margin-right: 20%;
-        margin-left: 20%;
-    }
-
     h3 {
         margin: 40px 0 0;
     }
